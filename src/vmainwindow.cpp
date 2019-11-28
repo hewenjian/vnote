@@ -334,6 +334,7 @@ void VMainWindow::setupNaviBox()
                        ":/resources/icons/explorer.svg",
                        tr("Explorer"));
 
+	/* Create a tag explorer */
     m_tagExplorer = new VTagExplorer();
     m_naviBox->addItem(m_tagExplorer,
                        ":/resources/icons/tag_explorer.svg",
@@ -370,6 +371,7 @@ void VMainWindow::setupNotebookPanel()
     m_fileList = new VFileList();
     m_fileList->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
 
+	/* Split the main window into navigation, file brower */
     m_nbSplitter = new QSplitter();
     m_nbSplitter->setObjectName("NotebookSplitter");
     m_nbSplitter->addWidget(naviWidget);

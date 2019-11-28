@@ -506,11 +506,11 @@ private:
 
     VUniversalEntry *m_ue;
 
-    VHistoryList *m_historyList;        /*!< History browser */
+    VHistoryList *m_historyList;        /*!< History explorer */
 
-    VExplorer *m_explorer;              /*!< File browser */
+    VExplorer *m_explorer;              /*!< File explorer */
 
-    VTagExplorer *m_tagExplorer;        /*!< Tag browser */
+    VTagExplorer *m_tagExplorer;        /*!< Tag explorer */
 
     // Whether sync note list to current tab.
     bool m_syncNoteListToCurrentTab;
