@@ -39,11 +39,14 @@ void VTagExplorer::setupUI()
         return;
     }
 
+	/* VTagExplorer is initialized */
     m_uiInitialized = true;
 
+	/* Create a label to show the title of tag list */
     m_notebookLabel = new QLabel(tr("Tags"), this);
     m_notebookLabel->setProperty("TitleLabel", true);
 
+	/* Create a tag list to browse tags */
     m_tagList = new VListWidget(this);
     m_tagList->setAttribute(Qt::WA_MacShowFocusRect, false);
     connect(m_tagList, &QListWidget::itemActivated,
@@ -67,9 +70,11 @@ void VTagExplorer::setupUI()
     QWidget *tagWidget = new QWidget(this);
     tagWidget->setLayout(tagLayout);
 
+	/* Create a label to show the title of file list */
     m_tagLabel = new QLabel(tr("Notes"), this);
     m_tagLabel->setProperty("TitleLabel", true);
 
+	/* Create a button to switch the layout of tag list and file list */
     m_splitBtn = new QPushButton(VIconUtils::buttonIcon(":/resources/icons/split_window.svg"),
                                  "",
                                  this);
@@ -90,6 +95,7 @@ void VTagExplorer::setupUI()
     titleLayout->addStretch();
     titleLayout->setContentsMargins(0, 0, 0, 0);
 
+	/* Create a file list to browse files by specified tag */
     m_fileList = new VListWidget(this);
     m_fileList->setAttribute(Qt::WA_MacShowFocusRect, false);
     m_fileList->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -107,11 +113,13 @@ void VTagExplorer::setupUI()
     QWidget *fileWidget = new QWidget(this);
     fileWidget->setLayout(fileLayout);
 
+	/* Create a splitter to contain the tag list and file list */
     m_splitter = new QSplitter(this);
     m_splitter->setObjectName("TagExplorerSplitter");
     m_splitter->addWidget(tagWidget);
     m_splitter->addWidget(fileWidget);
 
+	/* Setup the default orientation of splitter */
     setupFileListSplitOut(g_config->getEnableSplitTagFileList());
 
     QVBoxLayout *mainLayout = new QVBoxLayout();

@@ -93,9 +93,9 @@ private:
 
     bool m_uiInitialized;               /*!< Flag to check whether VTagExplorer has been instantiated. */
 
-    QLabel *m_notebookLabel;            /*!< Label to show the caption of m_tagList. */
+    QLabel *m_notebookLabel;            /*!< Label to show the title of m_tagList. */
 
-    QLabel *m_tagLabel;                 /*!< Label to show the caption of m_fileList. */
+    QLabel *m_tagLabel;                 /*!< Label to show the title of m_fileList. */
 
     QPushButton *m_splitBtn;            /*!< Switch the layout of m_notebookLabel and m_tagLabel between vertical or horizontal . */
 
