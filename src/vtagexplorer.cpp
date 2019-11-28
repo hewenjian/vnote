@@ -131,6 +131,8 @@ void VTagExplorer::setupUI()
     restoreStateAndGeometry();
 }
 
+/*! \brief Override to receive widget show events
+*/
 void VTagExplorer::showEvent(QShowEvent *p_event)
 {
     setupUI();
@@ -139,6 +141,8 @@ void VTagExplorer::showEvent(QShowEvent *p_event)
     updateContent();
 }
 
+/*! \brief Override to receive keyboard focus events
+*/
 void VTagExplorer::focusInEvent(QFocusEvent *p_event)
 {
     setupUI();
