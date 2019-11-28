@@ -430,6 +430,8 @@ void VTagExplorer::handleSearchFinished(const QSharedPointer<VSearchResult> &p_r
     }
 }
 
+/*! \brief Open the selected file
+*/
 void VTagExplorer::openFileItem(QListWidgetItem *p_item) const
 {
     if (!p_item) {
