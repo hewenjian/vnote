@@ -371,7 +371,7 @@ void VMainWindow::setupNotebookPanel()
     m_fileList = new VFileList();
     m_fileList->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Expanding);
 
-	/* Split the main window into navigation, file brower */
+	/* Split the main window into navigation, note brower */
     m_nbSplitter = new QSplitter();
     m_nbSplitter->setObjectName("NotebookSplitter");
     m_nbSplitter->addWidget(naviWidget);

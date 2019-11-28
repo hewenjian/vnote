@@ -463,6 +463,10 @@ QString VTagExplorer::getFilePath(const QListWidgetItem *p_item) const
     return p_item->data(Qt::UserRole).toString();
 }
 
+/*! \brief Handle of context menu requested in file list
+
+    The available functions are Open, Locate To Folder, Add To Chart, Pin To History.
+*/
 void VTagExplorer::handleFileListContextMenuRequested(QPoint p_pos)
 {
     QListWidgetItem *item = m_fileList->itemAt(p_pos);
