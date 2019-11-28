@@ -540,6 +540,11 @@ void VTagExplorer::registerNavigationTarget()
     g_mainWin->getCaptain()->registerNavigationTarget(fileWrapper);
 }
 
+/*! \brief Setup the layout of file list
+
+    Called to change the layout of tag list and file list depending on the 
+    checked state of QPushButton m_splitBtn.
+*/
 void VTagExplorer::setupFileListSplitOut(bool p_enabled)
 {
     m_splitBtn->setChecked(p_enabled);
