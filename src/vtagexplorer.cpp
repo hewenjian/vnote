@@ -294,6 +294,8 @@ bool VTagExplorer::activateTag(const QString &p_tag)
     return ret;
 }
 
+/*! \brief Update the tag list with the list of tags
+*/
 void VTagExplorer::updateTagList(const QStringList &p_tags)
 {
     // Clear.
