@@ -441,6 +441,8 @@ void VTagExplorer::openFileItem(QListWidgetItem *p_item) const
     g_mainWin->openFiles(files);
 }
 
+/*! \brief Helper to handle the context menu requested in file list
+*/
 void VTagExplorer::openSelectedFileItems() const
 {
     QStringList files;
@@ -463,9 +465,9 @@ QString VTagExplorer::getFilePath(const QListWidgetItem *p_item) const
     return p_item->data(Qt::UserRole).toString();
 }
 
-/*! \brief Handle of context menu requested in file list
+/*! \brief Show context menu in file list
 
-    The available functions are Open, Locate To Folder, Add To Chart, Pin To History.
+    The available actions are Open, Locate To Folder, Add To Chart, Pin To History.
 */
 void VTagExplorer::handleFileListContextMenuRequested(QPoint p_pos)
 {
@@ -515,6 +517,8 @@ void VTagExplorer::handleFileListContextMenuRequested(QPoint p_pos)
     menu.exec(m_fileList->mapToGlobal(p_pos));
 }
 
+/*! \brief Helper to handle the context menu requested in file list
+*/
 void VTagExplorer::locateCurrentFileItem() const
 {
     auto item = m_fileList->currentItem();
@@ -528,6 +532,8 @@ void VTagExplorer::locateCurrentFileItem() const
     }
 }
 
+/*! \brief Helper to handle the context menu requested in file list
+*/
 void VTagExplorer::addFileToCart() const
 {
     QList<QListWidgetItem *> items = m_fileList->selectedItems();
@@ -542,6 +548,8 @@ void VTagExplorer::addFileToCart() const
                                    .arg(items.size() > 1 ? tr("notes") : tr("note")));
 }
 
+/*! \brief Helper to handle the context menu requested in file list
+*/
 void VTagExplorer::pinFileToHistory() const
 {
     QList<QListWidgetItem *> items = m_fileList->selectedItems();
