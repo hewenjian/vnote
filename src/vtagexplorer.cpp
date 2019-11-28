@@ -285,6 +285,8 @@ void VTagExplorer::updateTagList(const QStringList &p_tags)
     }
 }
 
+/*! \brief Append a tag to the tag list
+*/
 void VTagExplorer::addTagItem(const QString &p_tag)
 {
     QListWidgetItem *item = new QListWidgetItem(VIconUtils::treeViewIcon(":/resources/icons/tag.svg"),
@@ -303,7 +305,7 @@ void VTagExplorer::saveStateAndGeometry()
     g_config->setTagExplorerSplitterState(m_splitter->saveState());
 }
 
-/*! \brief Restore the setting of state and geometry.
+/*! \brief Restore the setting of state and geometry
 */
 void VTagExplorer::restoreStateAndGeometry()
 {
