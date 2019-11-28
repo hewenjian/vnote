@@ -97,11 +97,11 @@ private:
 
     QSplitter *m_splitter;
 
-    VNotebook *m_notebook;
+    VNotebook *m_notebook;      /*!< Pointer to the notebook in use. */
 
     bool m_notebookChanged;
 
-    QIcon m_noteIcon;
+    QIcon m_noteIcon;           /*!< resources/icons/note_item */
 
     VSearch *m_search;
 };
