@@ -1,3 +1,11 @@
+/*!
+\copyright  VNote is developed and maintained by Le Tan.\n
+            VNote is licensed under the MIT license.
+\version    Part of 2.7.2
+\file       Vtagexplorer.h
+\brief      Header file for Tag Explorer
+*/
+
 #ifndef VTAGEXPLORER_H
 #define VTAGEXPLORER_H
 
@@ -83,19 +91,19 @@ private:
 
     void setupFileListSplitOut(bool p_enabled);
 
-    bool m_uiInitialized;
+    bool m_uiInitialized;               /*!< Flag to check whether VTagExplorer has been instantiated. */
 
-    QLabel *m_notebookLabel;
+    QLabel *m_notebookLabel;            /*!< Label to show the caption of m_tagList. */
 
-    QLabel *m_tagLabel;
+    QLabel *m_tagLabel;                 /*!< Label to show the caption of m_fileList. */
 
-    QPushButton *m_splitBtn;
+    QPushButton *m_splitBtn;            /*!< Switch the layout of m_notebookLabel and m_tagLabel between vertical or horizontal . */
 
-    VListWidget *m_tagList;
+    VListWidget *m_tagList;             /*!< Create a explorer to browse all the tages. */
 
-    VListWidget *m_fileList;
+    VListWidget *m_fileList;            /*!< Create a explorer to browse the files by specified tag. */
 
-    QSplitter *m_splitter;
+    QSplitter *m_splitter;              /*!< Splitter to distribute the m_notebookLabel and m_tagLabel. */
 
     VNotebook *m_notebook;      /*!< Pointer to the notebook in use. */
 
