@@ -303,6 +303,8 @@ void VTagExplorer::saveStateAndGeometry()
     g_config->setTagExplorerSplitterState(m_splitter->saveState());
 }
 
+/*! \brief Restore the setting of state and geometry.
+*/
 void VTagExplorer::restoreStateAndGeometry()
 {
     const QByteArray state = g_config->getTagExplorerSplitterState();
