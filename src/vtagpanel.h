@@ -14,6 +14,7 @@ class VLineEdit;
 class QStringListModel;
 class VNotebook;
 
+/*! \brief Implementation to modify the tag info of the file. */
 class VTagPanel : public QWidget, public VNavigationMode
 {
     Q_OBJECT
