@@ -21,6 +21,7 @@ class QSplitter;
 class VNotebook;
 class VSearch;
 
+/*! \brief Implementation to the tags explorer. */
 class VTagExplorer : public QWidget
 {
     Q_OBJECT

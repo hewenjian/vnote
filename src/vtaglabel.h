@@ -33,12 +33,12 @@ private:
 
     void updateLabel();
 
-    QString m_text;
+    QString m_text;                 /*!< Tip to label. */
 
-    bool m_useFullText;
+    bool m_useFullText;             /*!< Flag to show the full filename. */
 
-    QLabel *m_label;
-    QPushButton *m_closeBtn;
+    QLabel *m_label;                /*!< Display the opened filename. */
+    QPushButton *m_closeBtn;        /*!< Display the close button. */
 };
 
 inline const QString &VTagLabel::text() const
