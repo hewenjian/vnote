@@ -75,17 +75,23 @@ void VTagLabel::updateLabel()
     m_label->setToolTip(m_text);
 }
 
+/*! \brief Clear the tips of tag label
+*/
 void VTagLabel::clear()
 {
     m_label->clear();
 }
 
+/*! \brief Set the tips of tag label
+*/
 void VTagLabel::setText(const QString &p_text)
 {
     m_text = p_text;
     updateLabel();
 }
 
+/*! \brief Override to handle mouse event
+*/
 bool VTagLabel::event(QEvent *p_event)
 {
     switch (p_event->type()) {

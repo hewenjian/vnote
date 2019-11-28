@@ -34,7 +34,7 @@ private:
 
     void updateLabel();
 
-    QString m_text;                 /*!< Tip to the tag label. */
+    QString m_text;                 /*!< Tips to the tag label. */
 
     bool m_useFullText;             /*!< Flag to show the full filename. */
 
@@ -42,6 +42,8 @@ private:
     QPushButton *m_closeBtn;        /*!< Display the close button. */
 };
 
+/*! \brief Return the tips of tag label
+*/
 inline const QString &VTagLabel::text() const
 {
     return m_text;
