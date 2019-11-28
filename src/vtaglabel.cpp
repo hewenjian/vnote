@@ -24,13 +24,17 @@ VTagLabel::VTagLabel(QWidget *p_parent)
     setupUI();
 }
 
+/*! \brief Setup the tag label of file.
+*/
 void VTagLabel::setupUI()
 {
+	/* Create the label to show the filename */
     m_label = new QLabel(this);
     m_label->setProperty("TagLabel", true);
 
     updateLabel();
 
+	/* Create the close button of the opened file */
     m_closeBtn = new QPushButton(VIconUtils::buttonIcon(":/resources/icons/close.svg"), "", this);
     m_closeBtn->setProperty("StatusBtn", true);
     m_closeBtn->setToolTip(tr("Remove"));
@@ -52,6 +56,9 @@ void VTagLabel::setupUI()
     setLayout(layout);
 }
 
+/*! \brief Update the label text
+    Update the text and tip of the label, if the text is too long, it will be shorten.
+*/
 void VTagLabel::updateLabel()
 {
     QString tag(m_text);

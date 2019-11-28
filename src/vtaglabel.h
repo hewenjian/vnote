@@ -6,6 +6,7 @@
 class QLabel;
 class QPushButton;
 
+/*! \brief Implementation to the tag label of file. */
 class VTagLabel : public QWidget
 {
     Q_OBJECT
@@ -33,7 +34,7 @@ private:
 
     void updateLabel();
 
-    QString m_text;                 /*!< Tip to label. */
+    QString m_text;                 /*!< Tip to the tag label. */
 
     bool m_useFullText;             /*!< Flag to show the full filename. */
 
