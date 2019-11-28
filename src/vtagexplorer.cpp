@@ -408,6 +408,10 @@ void VTagExplorer::openSelectedFileItems() const
     }
 }
 
+/*! \brief Get the file path
+
+    Return the file path to the selected file in the file list.
+*/
 QString VTagExplorer::getFilePath(const QListWidgetItem *p_item) const
 {
     return p_item->data(Qt::UserRole).toString();
@@ -504,6 +508,10 @@ void VTagExplorer::pinFileToHistory() const
                                    .arg(items.size() > 1 ? tr("notes") : tr("note")));
 }
 
+/*! \brief Remove specified tag
+
+    Give a prompt to user before trying to remove the tag.
+*/
 void VTagExplorer::promptToRemoveEmptyTag(const QString &p_tag)
 {
     Q_ASSERT(!p_tag.isEmpty());
