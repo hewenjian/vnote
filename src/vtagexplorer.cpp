@@ -329,6 +329,10 @@ void VTagExplorer::handleSearchItemAdded(const QSharedPointer<VSearchResultItem>
     appendItemToFileList(p_item);
 }
 
+/*! \brief Append the search result to the file list
+
+    Helper to show the files with the search result in file list.
+*/
 void VTagExplorer::appendItemToFileList(const QSharedPointer<VSearchResultItem> &p_item)
 {
     Q_ASSERT(p_item->m_type == VSearchResultItem::Note);
