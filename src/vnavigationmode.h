@@ -62,6 +62,7 @@ private:
 };
 
 
+/*!< Implementation to navigation in list widget. */
 class VNavigationModeListWidgetWrapper : public QObject, public VNavigationMode
 {
     Q_OBJECT
