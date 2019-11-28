@@ -366,6 +366,8 @@ void VTagExplorer::initVSearch()
     m_noteIcon = VIconUtils::treeViewIcon(":/resources/icons/note_item.svg");
 }
 
+/*! \brief Helper to merge the search rusult of specified tag to file list
+*/
 void VTagExplorer::handleSearchItemAdded(const QSharedPointer<VSearchResultItem> &p_item)
 {
     appendItemToFileList(p_item);
@@ -386,6 +388,8 @@ void VTagExplorer::appendItemToFileList(const QSharedPointer<VSearchResultItem> 
     m_fileList->addItem(item);
 }
 
+/*! \brief Helper to merge the search rusult of specified tag to file list
+*/
 void VTagExplorer::handleSearchItemsAdded(const QList<QSharedPointer<VSearchResultItem> > &p_items)
 {
     for (auto const & it : p_items) {
@@ -393,6 +397,8 @@ void VTagExplorer::handleSearchItemsAdded(const QList<QSharedPointer<VSearchResu
     }
 }
 
+/*! \brief Helper to finish the search action
+*/
 void VTagExplorer::handleSearchFinished(const QSharedPointer<VSearchResult> &p_result)
 {
     Q_ASSERT(p_result->m_state != VSearchState::Idle);
