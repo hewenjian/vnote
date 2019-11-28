@@ -99,13 +99,17 @@ private:
 
     VNotebook *m_notebook;      /*!< Pointer to the notebook in use. */
 
-    bool m_notebookChanged;
+    bool m_notebookChanged;     /*!< Force to update tag list if notebook is changed. */
 
     QIcon m_noteIcon;           /*!< resources/icons/note_item */
 
-    VSearch *m_search;
+    VSearch *m_search;          /*!< Used to search the tag in tag list */
 };
 
+/*! \brief Return the search pointer
+
+    If m_search is not initialized, call initVSearch to create one.
+*/
 inline VSearch *VTagExplorer::getVSearch() const
 {
     if (m_search) {
