@@ -215,6 +215,12 @@ bool VTagExplorer::tagListObsolete(const QStringList &p_tags) const
     return false;
 }
 
+/*! \brief Update tag label
+
+    Update m_tagLabel with the selected tag in tag list.
+
+    \param p_tag The tag which is selected.
+*/
 void VTagExplorer::updateTagLabel(const QString &p_tag)
 {
     QString text = tr("Notes");
