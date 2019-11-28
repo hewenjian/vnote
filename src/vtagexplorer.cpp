@@ -156,6 +156,10 @@ void VTagExplorer::setNotebook(VNotebook *p_notebook)
     updateContent();
 }
 
+/*! \brief Update context
+
+    Update the related component depending on the notebook in use.
+*/
 void VTagExplorer::updateContent()
 {
     if (m_notebook) {
@@ -204,6 +208,10 @@ void VTagExplorer::updateNotebookLabel()
     m_notebookLabel->setToolTip(tooltip);
 }
 
+/*! \brief Check if the p_tags is obsolete
+
+    \param p_tags List of tags.
+*/
 bool VTagExplorer::tagListObsolete(const QStringList &p_tags) const
 {
     if (m_tagList->count() != p_tags.size()) {
@@ -221,7 +229,7 @@ bool VTagExplorer::tagListObsolete(const QStringList &p_tags) const
 
 /*! \brief Update tag label
 
-    Update m_tagLabel with the selected tag in tag list.
+    Update m_tagLabel with the selected tag in the tag list.
 
     \param p_tag The tag which is selected.
 */
@@ -246,7 +254,7 @@ void VTagExplorer::updateTagLabel(const QString &p_tag)
 
 /*! \brief Set activate tag
 
-    Update m_tagLabel and file list with p_tag.
+    Update the m_tagLabel and the file list with param p_tag.
 
     \param p_tag The tag which is selected.
 */
