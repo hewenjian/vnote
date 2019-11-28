@@ -240,6 +240,12 @@ void VTagExplorer::updateTagLabel(const QString &p_tag)
     m_tagLabel->setToolTip(tooltip);
 }
 
+/*! \brief Set activate tag
+
+    Update m_tagLabel and file list with p_tag.
+
+    \param p_tag The tag which is selected.
+*/
 bool VTagExplorer::activateTag(const QString &p_tag)
 {
     updateTagLabel(p_tag);
@@ -250,14 +256,14 @@ bool VTagExplorer::activateTag(const QString &p_tag)
         return false;
     }
 
-    // Search this tag within current notebook.
+	/* Show tip in status bar */
     g_mainWin->showStatusMessage(tr("Searching for tag \"%1\"").arg(p_tag));
 
+    /* Search this tag within current notebook. */
     QVector<VNotebook *> notebooks;
     notebooks.append(m_notebook);
     getVSearch()->clear();
-    // We could not use WholeWordOnly here, since "c#" won't match a word.
-    int opts = VSearchConfig::CaseSensitive | VSearchConfig::RegularExpression;
+    int opts = VSearchConfig::CaseSensitive | VSearchConfig::RegularExpression;		// We could not use WholeWordOnly here, since "c#" won't match a word.
     QString pattern = QRegExp::escape(p_tag);
     pattern = "^" + pattern + "$";
     QSharedPointer<VSearchConfig> config(new VSearchConfig(VSearchConfig::CurrentNotebook,
