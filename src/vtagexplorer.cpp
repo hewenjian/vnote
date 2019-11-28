@@ -150,6 +150,8 @@ void VTagExplorer::focusInEvent(QFocusEvent *p_event)
     m_tagList->setFocus();
 }
 
+/*! \brief Switch the notebook in use
+*/
 void VTagExplorer::setNotebook(VNotebook *p_notebook)
 {
     if (p_notebook == m_notebook) {
@@ -334,6 +336,8 @@ void VTagExplorer::addTagItem(const QString &p_tag)
     m_tagList->addItem(item);
 }
 
+/*! \brief Save the state of the splitter's layout
+*/
 void VTagExplorer::saveStateAndGeometry()
 {
     if (!m_uiInitialized) {
@@ -343,7 +347,7 @@ void VTagExplorer::saveStateAndGeometry()
     g_config->setTagExplorerSplitterState(m_splitter->saveState());
 }
 
-/*! \brief Restore the setting of state and geometry
+/*! \brief Restore the state of the splitter's layout
 */
 void VTagExplorer::restoreStateAndGeometry()
 {
