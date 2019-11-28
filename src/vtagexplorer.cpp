@@ -311,6 +311,10 @@ void VTagExplorer::restoreStateAndGeometry()
     }
 }
 
+/*! \brief Initialise the search module
+
+    Auto-update the file list to the selected tag with the signal and slot mechanisms.
+*/
 void VTagExplorer::initVSearch()
 {
     m_search = new VSearch(this);
