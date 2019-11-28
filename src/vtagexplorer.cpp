@@ -181,6 +181,10 @@ void VTagExplorer::clear()
     updateNotebookLabel();
 }
 
+/*! \brief Update notebook label
+
+    Update m_notebookLabel with the current notebook in use.
+*/
 void VTagExplorer::updateNotebookLabel()
 {
     QString text = tr("Tags");
