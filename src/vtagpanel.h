@@ -50,7 +50,7 @@ private:
 
     bool isAllTagsPanelAvailable() const;
 
-    QVector<VTagLabel *> m_labels;              /*! QVector of the tags to show */
+    QVector<VTagLabel *> m_labels;              /*! Container for the tags to show */
 
     VButtonWithWidget *m_btn;                   /*! Button to show the rest of tags. */
 
