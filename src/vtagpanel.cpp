@@ -30,6 +30,7 @@ VTagPanel::VTagPanel(QWidget *parent)
 
 void VTagPanel::setupUI()
 {
+	/* Malloc getMaxNumOfTagLabels tag label */
     const int maxNum = g_config->getMaxNumOfTagLabels();
     for (int i = 0; i < maxNum; ++i) {
         VTagLabel *label = new VTagLabel(this);
@@ -42,6 +43,7 @@ void VTagPanel::setupUI()
         m_labels.append(label);
     }
 
+	/* Create a container to manage(add/del) tags of a file */
     m_tagsPanel = new VAllTagsPanel(this);
     connect(m_tagsPanel, &VAllTagsPanel::tagRemoved,
             this, [this](const QString &p_text) {
@@ -54,6 +56,7 @@ void VTagPanel::setupUI()
                 }
             });
 
+	/* QPushButton with popup widget */
     m_btn = new VButtonWithWidget(VIconUtils::icon(":/resources/icons/tags.svg",
                                                    g_palette->color("tab_indicator_tag_label_bg")),
                                   "",
@@ -65,6 +68,7 @@ void VTagPanel::setupUI()
     connect(m_btn, &VButtonWithWidget::popupWidgetAboutToShow,
             this, &VTagPanel::updateAllTagsPanel);
 
+	/* LineEdit to add a tag */
     m_tagEdit = new VLineEdit(this);
     m_tagEdit->setToolTip(tr("Press Enter to add a tag"));
     m_tagEdit->setPlaceholderText(tr("Add a tag"));

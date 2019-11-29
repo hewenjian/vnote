@@ -7,7 +7,7 @@ class QListWidget;
 class QListWidgetItem;
 class VTagLabel;
 
-/*! \brief Implementation to tag bar. */
+/*! \brief Implementation to manage(add/del) all tags of a file. */
 class VAllTagsPanel : public QWidget
 {
     Q_OBJECT
