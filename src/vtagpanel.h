@@ -50,19 +50,19 @@ private:
 
     bool isAllTagsPanelAvailable() const;
 
-    QVector<VTagLabel *> m_labels;
+    QVector<VTagLabel *> m_labels;              /*! QVector of the tags to show */
 
-    VButtonWithWidget *m_btn;
+    VButtonWithWidget *m_btn;                   /*! Button to show the rest of tags. */
 
-    VAllTagsPanel *m_tagsPanel;
+    VAllTagsPanel *m_tagsPanel;                 /*! Component to show the tag bar. */
 
-    VLineEdit *m_tagEdit;
+    VLineEdit *m_tagEdit;                       /*! LineEdit to add a tag. */
 
     // Used for auto completion.
-    QStringListModel *m_tagsModel;
+    QStringListModel *m_tagsModel;              /*! Provide a model that supplies tags to views. */
 
-    VNoteFile *m_file;
+    VNoteFile *m_file;                          /*! Pointer to the VNoteFile in use. */
 
-    const VNotebook *m_notebookOfCompleter;
+    const VNotebook *m_notebookOfCompleter;     /*! Completer of tags depending on notebook. */
 };
 #endif // VTAGPANEL_H

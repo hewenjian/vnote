@@ -7,6 +7,7 @@ class QListWidget;
 class QListWidgetItem;
 class VTagLabel;
 
+/*! \brief Implementation to tag bar. */
 class VAllTagsPanel : public QWidget
 {
     Q_OBJECT
