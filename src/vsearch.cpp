@@ -216,6 +216,7 @@ void VSearch::searchFirstPhase(VFile *p_file,
         }
     }
 
+	/* Search in all tags */
     if (testObject(VSearchConfig::Tag)) {
         VSearchResultItem *item = searchForTag(p_file);
         if (item) {
@@ -636,6 +637,8 @@ VSearchResultItem *VSearch::searchForContent(const VFile *p_file) const
     return item;
 }
 
+
+/*! brief Use another search engine to get more results, such as Vsearchengine(Set VSearchConfig::Internal) */
 void VSearch::searchSecondPhase(const QSharedPointer<VSearchResult> &p_result)
 {
     delete m_engine;
