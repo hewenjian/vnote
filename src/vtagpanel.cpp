@@ -43,7 +43,7 @@ void VTagPanel::setupUI()
         m_labels.append(label);
     }
 
-	/* Create a container to manage(add/del) tags of a file */
+	/* Create a container to manage(add/del) the rest tags of a file */
     m_tagsPanel = new VAllTagsPanel(this);
     connect(m_tagsPanel, &VAllTagsPanel::tagRemoved,
             this, [this](const QString &p_text) {
