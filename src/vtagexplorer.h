@@ -92,6 +92,8 @@ private:
 
     void setupFileListSplitOut(bool p_enabled);
 
+    void showTagWidget();
+
     bool m_uiInitialized;               /*!< Flag to check whether VTagExplorer has been instantiated. */
 
     QLabel *m_notebookLabel;            /*!< Label to show the title of m_tagList. */

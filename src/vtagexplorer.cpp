@@ -39,36 +39,10 @@ void VTagExplorer::setupUI()
         return;
     }
 
+    showTagWidget();
+
 	/* VTagExplorer is initialized */
     m_uiInitialized = true;
-
-	/* Create a label to show the title of tag list */
-    m_notebookLabel = new QLabel(tr("Tags"), this);
-    m_notebookLabel->setProperty("TitleLabel", true);
-
-	/* Create a tag list to browse tags */
-    m_tagList = new VListWidget(this);
-    m_tagList->setAttribute(Qt::WA_MacShowFocusRect, false);
-    connect(m_tagList, &QListWidget::itemActivated,
-            this, [this](const QListWidgetItem *p_item) {
-                QString tag;
-                if (p_item) {
-                    tag = p_item->text();
-                }
-
-                bool ret = activateTag(tag);
-                if (ret && !tag.isEmpty() && m_fileList->count() == 0) {
-                    promptToRemoveEmptyTag(tag);
-                }
-            });
-
-    QVBoxLayout *tagLayout = new QVBoxLayout();
-    tagLayout->addWidget(m_notebookLabel);
-    tagLayout->addWidget(m_tagList);
-    tagLayout->setContentsMargins(0, 0, 0, 0);
-
-    QWidget *tagWidget = new QWidget(this);
-    tagWidget->setLayout(tagLayout);
 
 	/* Create a label to show the title of file list */
     m_tagLabel = new QLabel(tr("Notes"), this);
@@ -116,7 +90,7 @@ void VTagExplorer::setupUI()
 	/* Create a splitter to contain the tag list and file list */
     m_splitter = new QSplitter(this);
     m_splitter->setObjectName("TagExplorerSplitter");
-    m_splitter->addWidget(tagWidget);
+    //m_splitter->addWidget(tagWidget);
     m_splitter->addWidget(fileWidget);
 
 	/* Setup the default orientation of splitter */
@@ -640,3 +614,37 @@ void VTagExplorer::setupFileListSplitOut(bool p_enabled)
         m_splitter->setStretchFactor(1, 2);
     }
 }
+
+void VTagExplorer::showTagWidget()
+{
+	/* Create a label to show the title of tag list */
+    m_notebookLabel = new QLabel(tr("Tags"));
+    m_notebookLabel->setProperty("TitleLabel", true);
+
+	/* Create a tag list to browse tags */
+    m_tagList = new VListWidget(NULL);
+    m_tagList->setAttribute(Qt::WA_MacShowFocusRect, false);
+    connect(m_tagList, &QListWidget::itemActivated,
+            this, [this](const QListWidgetItem *p_item) {
+                QString tag;
+                if (p_item) {
+                    tag = p_item->text();
+                }
+
+                bool ret = activateTag(tag);
+                if (ret && !tag.isEmpty() && m_fileList->count() == 0) {
+                    promptToRemoveEmptyTag(tag);
+                }
+            });
+
+    QVBoxLayout *tagLayout = new QVBoxLayout();
+    tagLayout->addWidget(m_notebookLabel);
+    tagLayout->addWidget(m_tagList);
+    tagLayout->setContentsMargins(0, 0, 0, 0);
+
+    QWidget *tagWidget = new QWidget(NULL);
+    tagWidget->setLayout(tagLayout);
+
+    tagWidget->show();
+}
+
