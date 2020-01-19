@@ -106,7 +106,7 @@ void VTagExplorer::setupUI()
     m_fileList->setAttribute(Qt::WA_MacShowFocusRect, false);
     m_fileList->setContextMenuPolicy(Qt::CustomContextMenu);
     m_fileList->setSelectionMode(QAbstractItemView::ExtendedSelection);
-    connect(m_fileList, &QListWidget::itemActivated,
+    connect(m_fileList, &QListWidget::itemClicked,
             this, &VTagExplorer::openFileItem);
     connect(m_fileList, &QListWidget::customContextMenuRequested,
             this, &VTagExplorer::handleFileListContextMenuRequested);
