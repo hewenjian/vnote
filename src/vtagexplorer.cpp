@@ -50,7 +50,7 @@ void VTagExplorer::setupUI()
 	m_tagList->setResizeMode(QListView::Adjust);
 	m_tagList->setViewMode(QListView::IconMode);
 	m_tagList->setMovement(QListView::Static);
-	m_tagList->setSpacing(10);
+	m_tagList->setSpacing(0);
 	
     connect(m_tagList, &QListWidget::itemActivated,
             this, [this](const QListWidgetItem *p_item) {
