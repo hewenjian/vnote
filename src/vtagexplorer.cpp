@@ -51,7 +51,7 @@ void VTagExplorer::setupUI()
 	m_tagList->setViewMode(QListView::IconMode);
 	m_tagList->setMovement(QListView::Static);
 	m_tagList->setSpacing(0);
-	m_tagList->setSelectionMode(QAbstractItemView::MultiSelection);
+	m_tagList->setSelectionMode(QAbstractItemView::ExtendedSelection);
 	
     connect(m_tagList, &QListWidget::itemClicked,
             this, [this](const QListWidgetItem *p_item) {
