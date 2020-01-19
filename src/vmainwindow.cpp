@@ -329,10 +329,12 @@ void VMainWindow::setupNaviBox()
                        ":/resources/icons/history.svg",
                        tr("History"));
 
+#if 0	// hwj: VExplorer is not used by me
     m_explorer = new VExplorer();
     m_naviBox->addItem(m_explorer,
                        ":/resources/icons/explorer.svg",
                        tr("Explorer"));
+#endif
 
 	/* Create a tag explorer */
     m_tagExplorer = new VTagExplorer();

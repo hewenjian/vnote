@@ -80,6 +80,7 @@ void VTagExplorer::setupUI()
     m_tagLabel = new QLabel(tr("Notes"), this);
     m_tagLabel->setProperty("TitleLabel", true);
 
+#if 0	// hwj: Taglist and filelist splitter is not used by me
 	/* Create a button to switch the layout of tag list and file list */
     m_splitBtn = new QPushButton(VIconUtils::buttonIcon(":/resources/icons/split_window.svg"),
                                  "",
@@ -94,10 +95,11 @@ void VTagExplorer::setupUI()
                 setupFileListSplitOut(p_checked);
                 saveStateAndGeometry();
             });
+#endif
 
     QHBoxLayout *titleLayout = new QHBoxLayout();
     titleLayout->addWidget(m_tagLabel);
-    titleLayout->addWidget(m_splitBtn);
+    //titleLayout->addWidget(m_splitBtn);		// hwj: Taglist and filelist splitter is not used by me
     titleLayout->addStretch();
     titleLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -126,7 +128,7 @@ void VTagExplorer::setupUI()
     m_splitter->addWidget(fileWidget);
 
 	/* Setup the default orientation of splitter */
-    setupFileListSplitOut(g_config->getEnableSplitTagFileList());
+    //setupFileListSplitOut(g_config->getEnableSplitTagFileList());  // hwj: Taglist and filelist splitter is not used by me
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->addWidget(m_splitter);
