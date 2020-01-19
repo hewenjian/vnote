@@ -36,6 +36,8 @@ public:
 
     void registerNavigationTarget();
 
+    void showTagWidget();
+
 protected:
     void showEvent(QShowEvent *p_event) Q_DECL_OVERRIDE;
 
@@ -91,8 +93,6 @@ private:
     void promptToRemoveEmptyTag(const QString &p_tag);
 
     void setupFileListSplitOut(bool p_enabled);
-
-    void showTagWidget();
 
     bool m_uiInitialized;               /*!< Flag to check whether VTagExplorer has been instantiated. */
 

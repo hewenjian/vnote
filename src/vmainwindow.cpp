@@ -701,10 +701,19 @@ QToolBar *VMainWindow::initNoteToolBar(QSize p_iconSize)
     connect(universalEntryAct, &QAction::triggered,
             this, &VMainWindow::activateUniversalEntry);
 
+	
+    QAction *tagWidgetAct = new QAction(VIconUtils::toolButtonIcon(":/resources/icons/tags.svg"),
+                                             tr("Show Tag Explorer"),
+                                             this);
+
+    connect(tagWidgetAct, &QAction::triggered,
+            this, &VMainWindow::activateTagWidgetAct);
+
     m_noteToolBar->addWidget(m_attachmentBtn);
     m_noteToolBar->addAction(flashPageAct);
     m_noteToolBar->addAction(quickAccessAct);
     m_noteToolBar->addAction(universalEntryAct);
+	m_noteToolBar->addAction(tagWidgetAct);
 
     return m_noteToolBar;
 }
@@ -3347,6 +3356,11 @@ void VMainWindow::activateUniversalEntry()
 
     m_ue->show();
     m_ue->raise();
+}
+
+void VMainWindow::activateTagWidgetAct()
+{
+	m_tagExplorer->showTagWidget();
 }
 
 void VMainWindow::initUniversalEntry()

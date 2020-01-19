@@ -208,6 +208,8 @@ private slots:
     // Activate Universal Entry.
     void activateUniversalEntry();
 
+    void activateTagWidgetAct();
+
     void stayOnTop(bool p_enabled);
 
     void splitFileListOut(bool p_enabled);
