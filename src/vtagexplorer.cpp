@@ -39,7 +39,39 @@ void VTagExplorer::setupUI()
         return;
     }
 
-    showTagWidget();
+	/* Create a label to show the title of tag list */
+    m_notebookLabel = new QLabel(tr("Tags"), this);
+    m_notebookLabel->setProperty("TitleLabel", true);
+
+	/* Create a tag list to browse tags */
+    m_tagList = new VListWidget(this);
+    m_tagList->setAttribute(Qt::WA_MacShowFocusRect, false);
+
+	m_tagList->setResizeMode(QListView::Adjust);
+	m_tagList->setViewMode(QListView::IconMode);
+	m_tagList->setMovement(QListView::Static);
+	m_tagList->setSpacing(10);
+	
+    connect(m_tagList, &QListWidget::itemActivated,
+            this, [this](const QListWidgetItem *p_item) {
+                QString tag;
+                if (p_item) {
+                    tag = p_item->text();
+                }
+
+                bool ret = activateTag(tag);
+                if (ret && !tag.isEmpty() && m_fileList->count() == 0) {
+                    promptToRemoveEmptyTag(tag);
+                }
+            });
+
+    QVBoxLayout *tagLayout = new QVBoxLayout();
+    tagLayout->addWidget(m_notebookLabel);
+    tagLayout->addWidget(m_tagList);
+    tagLayout->setContentsMargins(0, 0, 0, 0);
+
+    QWidget *tagWidget = new QWidget(this);
+    tagWidget->setLayout(tagLayout);
 
 	/* VTagExplorer is initialized */
     m_uiInitialized = true;
@@ -90,7 +122,7 @@ void VTagExplorer::setupUI()
 	/* Create a splitter to contain the tag list and file list */
     m_splitter = new QSplitter(this);
     m_splitter->setObjectName("TagExplorerSplitter");
-    //m_splitter->addWidget(tagWidget);
+    m_splitter->addWidget(tagWidget);
     m_splitter->addWidget(fileWidget);
 
 	/* Setup the default orientation of splitter */
@@ -303,8 +335,7 @@ void VTagExplorer::updateTagList(const QStringList &p_tags)
 */
 void VTagExplorer::addTagItem(const QString &p_tag)
 {
-    QListWidgetItem *item = new QListWidgetItem(VIconUtils::treeViewIcon(":/resources/icons/tag.svg"),
-                                                p_tag);
+    QListWidgetItem *item = new QListWidgetItem(p_tag);
     item->setToolTip(p_tag);
 
     m_tagList->addItem(item);
