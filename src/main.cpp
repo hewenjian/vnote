@@ -194,7 +194,7 @@ int main(int argc, char *argv[])
     initLogFile(vconfig.getLogFilePath());
 #endif
 
-    qInstallMessageHandler(VLogger);
+    //qInstallMessageHandler(VLogger);
 
     qInfo() << "VNote started" << g_config->c_version << QDateTime::currentDateTime().toString();
 
