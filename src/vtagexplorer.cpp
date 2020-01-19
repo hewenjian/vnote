@@ -52,7 +52,7 @@ void VTagExplorer::setupUI()
 	m_tagList->setMovement(QListView::Static);
 	m_tagList->setSpacing(0);
 	
-    connect(m_tagList, &QListWidget::itemActivated,
+    connect(m_tagList, &QListWidget::itemClicked,
             this, [this](const QListWidgetItem *p_item) {
                 QString tag;
                 if (p_item) {
