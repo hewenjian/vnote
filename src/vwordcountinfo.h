@@ -4,7 +4,7 @@
 #include <QString>
 #include <QDebug>
 
-
+/*! Word count infomation */
 struct VWordCountInfo
 {
     enum Mode
