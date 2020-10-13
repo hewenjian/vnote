@@ -56,9 +56,21 @@ void VTagExplorer::setupUI()
     connect(m_tagList, &QListWidget::itemClicked,
             this, [this](const QListWidgetItem *p_item) {
                 QString tag;
+
+#if 1
+				QList<QListWidgetItem *> selectedItems = m_tagList->selectedItems();
+
+				for(int i = 0; i < selectedItems.size(); i++){
+
+					tag.append(selectedItems[i]->text() + "|");
+				}
+				tag = tag.left(tag.size() - 1);
+
+#else
                 if (p_item) {
                     tag = p_item->text();
                 }
+#endif
 
                 bool ret = activateTag(tag);
                 if (ret && !tag.isEmpty() && m_fileList->count() == 0) {
@@ -291,6 +303,8 @@ bool VTagExplorer::activateTag(const QString &p_tag)
         return false;
     }
 
+	qDebug() << "activateTag" << p_tag;
+
 	/* Show tip in status bar */
     g_mainWin->showStatusMessage(tr("Searching for tag \"%1\"").arg(p_tag));
 
@@ -299,8 +313,8 @@ bool VTagExplorer::activateTag(const QString &p_tag)
     notebooks.append(m_notebook);
     getVSearch()->clear();
     int opts = VSearchConfig::CaseSensitive | VSearchConfig::RegularExpression;		// We could not use WholeWordOnly here, since "c#" won't match a word.
-    QString pattern = QRegExp::escape(p_tag);
-    pattern = "^" + pattern + "$";
+    QString pattern = p_tag; //QRegExp::escape(p_tag);
+    //pattern = "^" + pattern + "$";
     QSharedPointer<VSearchConfig> config(new VSearchConfig(VSearchConfig::CurrentNotebook,
                                                            VSearchConfig::Tag,
                                                            VSearchConfig::Note,
