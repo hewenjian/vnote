@@ -3,8 +3,8 @@
 
 #include "utils/vutils.h"
 
-const QString VSingleInstanceGuard::c_memKey = "vnote_shared_memory";
-const int VSingleInstanceGuard::c_magic = 19910906;
+const QString VSingleInstanceGuard::c_memKey = "vnote_shared_memory+1";
+const int VSingleInstanceGuard::c_magic = 19910906+1;
 
 VSingleInstanceGuard::VSingleInstanceGuard()
     : m_online(false),
